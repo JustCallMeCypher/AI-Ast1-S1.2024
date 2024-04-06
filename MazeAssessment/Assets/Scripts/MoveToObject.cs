@@ -13,6 +13,8 @@ public class MoveToObject : MonoBehaviour
     public GameObject end;
 
     public bool collectedKey = false;
+
+    public int itemsCollected = 0;
     
 
 
@@ -35,7 +37,12 @@ public class MoveToObject : MonoBehaviour
         else
         {
             collectedKey = true;
+            itemsCollected = 1;
             agent.destination = end.transform.position;
+        }
+        if (key == null && end != null)
+        {
+            itemsCollected = 2;
         }
         
     }
